@@ -14,7 +14,6 @@
 //import { mapState } from "vuex";
 export default {
 	name: 'PreLoader',
-	data(){},
 	props: {
 		preLoaderText: {
 			type: String,

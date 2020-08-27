@@ -5,11 +5,11 @@
         <v-card class="resultCard" v-if="resultReady == 1">
           <pre-loader preLoaderText = "Please wait..."></pre-loader>
         </v-card>
-        <v-card class="resultCard" v-else>
+        <v-card class="resultCard" v-else-if="resultReady == 2">
           <v-card-title>
             <div v-if="(resultList.length>0 && resultList.length<=1000)">Results</div>
             <div v-else-if="resultList.length<=0">☹️☹️ Sorry no results matched your query under given filters ☹️☹️</div>
-            <div v-else>Too many results, consider using some filters, or more specified query.</div>
+            <div v-else>Too many results, consider using some filters or more specified query.</div>
           </v-card-title>
           <v-card-text v-if="(resultList.length>0 && resultList.length<=1000)">
             <v-expansion-panels>
