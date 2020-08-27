@@ -1,15 +1,14 @@
 <template>
   <v-app dark>
-    <v-app-bar app>
-      <v-toolbar-title>Codeforces User Search</v-toolbar-title>
-    </v-app-bar>
     <v-main>
+      <brand/>
       <v-container>
         <nuxt />
       </v-container>
     </v-main>
     <v-footer
       app
+      class="pink--text text--darken-1"
     >
       <span>&copy; {{ new Date().getFullYear() }}, All rights reserved</span>
     </v-footer>
@@ -17,13 +16,13 @@
 </template>
 
 <script>
-import SearchForm from "@/components/SearchForm.vue";
+import Brand from "@/components/Brand.vue";
 export default {
   data () {
     return {}
   },
   components: {
-    SearchForm,
+    Brand,
   }
 }
 </script>
