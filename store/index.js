@@ -22,7 +22,7 @@ const createStore = () => {
                     if ('organization' in user)
                         return user.organization.toLowerCase() === org
                     else
-                        return true;
+                        return false;
                 });
             },
             countryFilter(state, country) {
@@ -63,7 +63,7 @@ const createStore = () => {
                 }
                 state.resultList = state.resultList.filter(user => user.score > 0);
                 console.log("After search result list length = ", state.resultList.length);
-                //state.resultList.sort((a, b) => (a.score > b.score ? -1 : 1));
+                state.resultList.sort((a, b) => (a.score > b.score ? -1 : 1));
                 this.isProcessing = false;
             },
             initialiseResultList(state) {

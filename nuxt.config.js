@@ -30,7 +30,9 @@ export default {
     /*
      ** Global CSS
      */
-    css: [],
+    css: [
+        '~static/main.css'
+    ],
     /*
      ** Plugins to load before mounting the App
      ** https://nuxtjs.org/guide/plugins
@@ -73,12 +75,12 @@ export default {
             dark: true,
             themes: {
                 dark: {
-                    primary: colors.blue.darken2,
+                    primary: colors.lightGreen.accent3,
                     accent: colors.grey.darken3,
                     secondary: colors.amber.darken3,
                     info: colors.teal.lighten1,
                     warning: colors.amber.base,
-                    error: colors.deepOrange.accent4,
+                    error: colors.lime.accent2,
                     success: colors.green.accent3
                 }
             }
