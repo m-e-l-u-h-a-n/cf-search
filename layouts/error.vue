@@ -1,9 +1,11 @@
 <template>
-    <v-row>
-      <v-col cols="12">
-          <h1>404</h1>
-          <h2>Page not found</h2>
-          <nuxt-link to="/">back to home</nuxt-link>
+    <v-row justify="center" align-content-center>
+      <v-col cols="10">
+          <div class="content">
+            <h1 class="display-4">404</h1>
+            <h2>Page not found</h2>
+            <nuxt-link to="/">Back to home</nuxt-link>
+          </div>
       </v-col>
     </v-row>
 </template>
@@ -11,71 +13,16 @@
 <script>
 export default {
   name: 'error',
-  methods: {
-    animation() {
-      var lFollowX = 0,
-        lFollowY = 0,
-        x = 0,
-        y = 0,
-        friction = 1 / 30
-      function animate() {
-        x += (lFollowX - x) * friction
-        y += (lFollowY - y) * friction
-        let translate = 'translate(' + x + 'px, ' + y + 'px) scale(1.1)'
-        let img = document.querySelector('#background')
-        img.setAttribute('style',`-webit-transform: ${translate};-moz-transform: ${translate};transform: ${translate};`)
-        window.requestAnimationFrame(animate)
-      }
-      document.addEventListener('mousemove', function (e) {
-        var lMouseX = Math.max(
-          -100,
-          Math.min(100, window.innerWidth / 2 - e.clientX)
-        )
-        var lMouseY = Math.max(
-          -100,
-          Math.min(100, window.innerHeight / 2 - e.clientY)
-        )
-        lFollowX = (20 * lMouseX) / 100 // 100 : 12 = lMouxeX : lFollow
-        lFollowY = (10 * lMouseY) / 100
-      })
-      animate()
-    },
-  },
-  mounted() {
-    this.animation()
-    console.log('run')
-  },
+  methods: {},
 }
 </script>
 
 <style scoped lang="scss">
-/*--------------------
-Page
---------------------*/
-.page {
-  margin : 5rem 12rem;
-  z-index: 1;
-  font-family: Roboto, sans-serif;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 15px #76FF03 !important;
-  display: flex;
-  justify-content: center;
-}
-/*--------------------
-Header
---------------------*/
 .content {
   text-align: center;
-  padding-top: 0px;
   color: #cdd4de;
-  // position: absolute;
-  // top: 10%;
-  // left: 50%;
-  transform: translate(-50%, -10%);
+  margin-top: 5rem;
   h1 {
-    font-weight: 900;
-    font-size: 15rem;
     line-height: 1;
     margin-bottom: -0.9rem;
     opacity: 0.8;
@@ -94,9 +41,9 @@ Header
     display: inline-block;
     text-decoration: none;
     font-weight: 300;
-    font-size: 12px;
+    font-size: 0.9rem;
     text-transform: uppercase;
-    border: 1px solid #cdd4de94;
+    border: 0.09rem solid #cdd4de94;
     padding: 0.5rem 0.9rem;
     border-radius: 0.25rem;
     opacity: 1;
@@ -104,7 +51,4 @@ Header
     color: whitesmoke;
   }
 }
-/*--------------------
-Image
---------------------*/
 </style>

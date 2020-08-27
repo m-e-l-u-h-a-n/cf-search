@@ -14,10 +14,12 @@
 //import { mapState } from "vuex";
 export default {
 	name: 'PreLoader',
-	data(){
-		return {
-			preLoaderText: "Please wait while we fiddle with the data to make it useful for you.",
-		};
+	data(){},
+	props: {
+		preLoaderText: {
+			type: String,
+			default: "Please wait while we fiddle with the data to make it useful for you."
+		}
 	},
 	methods: {},
 	computed: {},

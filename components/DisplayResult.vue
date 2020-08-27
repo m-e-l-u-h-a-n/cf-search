@@ -2,7 +2,10 @@
   <v-container>
     <v-layout row wrap>
       <v-flex xs12>
-        <v-card id="resultCard">
+        <v-card class="resultCard" v-if="resultReady == 1">
+          <pre-loader preLoaderText = "Please wait..."></pre-loader>
+        </v-card>
+        <v-card class="resultCard" v-else>
           <v-card-title>
             <div v-if="(resultList.length>0 && resultList.length<=1000)">Results</div>
             <div v-else-if="resultList.length<=0">☹️☹️ Sorry no results matched your query under given filters ☹️☹️</div>
@@ -69,6 +72,7 @@
   </v-container>
 </template>
 <script>
+import PreLoader from '@/components/PreLoader.vue';
 import { mapState } from "vuex";
 export default {
 	name: "DisplayResult",
@@ -76,7 +80,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapState(["resultList"]),
+    ...mapState(["resultList","resultReady"]),
   },
   methods: {
     checkName(user) {
@@ -94,11 +98,14 @@ export default {
 		getProfileUrl(user){
 			return "https://codeforces.com/profile/" + user.handle;
 		}
+  },
+  components: {
+    PreLoader,
   }
 };
 </script>
 <style scoped>
-#resultCard{
+.resultCard{
   box-shadow: 0 0 15px #76FF03 !important;
   margin-top: 3rem;
 }
