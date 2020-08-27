@@ -1,13 +1,12 @@
 <template>
   <span mt-3>
-    <v-container>
-      <v-layout row wrap>
-        <v-flex xs12>
-          <v-card>
+      <v-row row wrap>
+        <v-col xs="12" md="10" mt="5">
+          <v-card id="searchForm" width="700" flat>
             <v-card-title color="primary">
-              <div class="headline my-2">Codeforces User search</div>
+              <div class="headline my-2 pink--text text--darken-1">User search</div>
             </v-card-title>
-            <v-card-subtitle>All fields and filters are optional but you have to fill atleast one for valid search.</v-card-subtitle>
+            <v-card-subtitle>All filters are optional</v-card-subtitle>
             <v-card-text>
               <v-container>
                 <v-layout column>
@@ -36,12 +35,11 @@
             </v-card-text>
             <v-card-actions>
               <v-btn color="primary" :disabled="!isValid" @click="submit">Search</v-btn>
-              <v-btn color="primary" :disabled="!isValid" @click="initialise">Reset</v-btn>
+              <v-btn color="primary" :disabled="!isValid" @click="initialise" >Reset</v-btn>
             </v-card-actions>
           </v-card>
-        </v-flex>
-      </v-layout>
-    </v-container>
+        </v-col>
+      </v-row>
   </span>
 </template>
 <script>
@@ -95,4 +93,9 @@ export default {
   }
 };
 </script>
-<style scoped></style>
+<style scoped>
+#searchForm{
+  box-shadow: 0 0 15px #76FF03 !important;
+  margin-top: 5rem;
+}
+</style>

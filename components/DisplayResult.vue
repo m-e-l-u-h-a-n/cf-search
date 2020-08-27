@@ -2,17 +2,18 @@
   <v-container>
     <v-layout row wrap>
       <v-flex xs12>
-        <v-card>
+        <v-card id="resultCard">
           <v-card-title>
-            <div v-if="resultList.length>0">Results</div>
-            <div v-else>☹️☹️ Sorry no results matched your query under given filters ☹️☹️.</div>
+            <div v-if="(resultList.length>0 && resultList.length<=1000)">Results</div>
+            <div v-else-if="resultList.length<=0">☹️☹️ Sorry no results matched your query under given filters ☹️☹️</div>
+            <div v-else>Too many results, consider using some filters, or more specified query.</div>
           </v-card-title>
-          <v-card-text v-show="resultList.length>0">
+          <v-card-text v-if="(resultList.length>0 && resultList.length<=1000)">
             <v-expansion-panels>
               <v-expansion-panel v-for="(user,index) in resultList" :key="index">
                 <v-expansion-panel-header>{{ user.handle }}</v-expansion-panel-header>
               <v-expansion-panel-content>
-                <v-card>
+                <v-card flat>
                   <v-card-title>User Info</v-card-title>
                   <v-card-subtitle>{{user.handle}}</v-card-subtitle>
                   <v-card-text>
@@ -75,7 +76,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapState(["resultList"])
+    ...mapState(["resultList"]),
   },
   methods: {
     checkName(user) {
@@ -97,4 +98,8 @@ export default {
 };
 </script>
 <style scoped>
+#resultCard{
+  box-shadow: 0 0 15px #76FF03 !important;
+  margin-top: 3rem;
+}
 </style>
