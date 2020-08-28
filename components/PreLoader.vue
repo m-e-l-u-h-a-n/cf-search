@@ -31,5 +31,6 @@ export default {
 }
 #loading{
 	z-index: 99999 !important;
+	margin-top: 5rem;
 }
 </style>
