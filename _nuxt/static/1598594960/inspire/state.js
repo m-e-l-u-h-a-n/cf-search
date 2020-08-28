@@ -1,0 +1,1 @@
+window.__NUXT__=(function(a,b){return {staticAssetsBase:"\u002F_nuxt\u002Fstatic\u002F1598594960",layout:"default",error:null,state:{userList:[],hasLoaded:a,resulInit:b,isProcessing:a,resultReady:b,resultList:[],failed:a},serverRendered:true,routePath:"\u002Finspire",config:{}}}(false,3));
